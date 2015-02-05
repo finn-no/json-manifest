@@ -2,7 +2,7 @@ var Readable = require('stream').Readable;
 var glob = require('glob');
 
 function withoutHash(filename) {
-	return filename.replace(/(.*)(-[^.]+)(\.js)$/, '$1$3');
+	return filename.replace(/(.*)(-[^.]+)(\..*)$/, '$1$3');
 }
 
 module.exports = function jsonManifest(dir, filePattern) {

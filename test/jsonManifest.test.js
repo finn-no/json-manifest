@@ -1,7 +1,7 @@
 var assert = require('assert');
 var Readable = require('stream').Readable;
 
-var expectedManifest = {
+var expectedJsManifest = {
 	"fixtures/common.js":"fixtures/common-e4137d8d.js"
 };
 
@@ -19,8 +19,21 @@ describe('npm module', function() {
 	});
 
 	it('should push stringified JSON manifest into returned stream', function(done) {
-		jsonManifest('test', 'fixtures/*.js').on('data', function(manifestData) {
-			assert.equal(manifestData, JSON.stringify(expectedManifest));
+		jsonManifest('test', 'fixtures/*.js').on('data', function(manifestChunk) {
+			var manifest = manifestChunk.toString();
+			assert.equal(manifest, JSON.stringify(expectedJsManifest));
+			done();
+		});
+	});
+
+	it('should be able to create manifest for all kinds of files', function(done) {
+		var expectedCssManifest = {
+			"fixtures/main.css":"fixtures/main-ef0e6cf5.css"
+		};
+
+		jsonManifest('test', 'fixtures/*.css').on('data', function(manifestChunk) {
+			var manifest = manifestChunk.toString();
+			assert.equal(manifest, JSON.stringify(expectedCssManifest));
 			done();
 		});
 	});
@@ -40,7 +53,7 @@ describe('cli', function() {
 
 	it('should write JSON manifest into stdout', function(done) {
 		exec('bin/json-manifest test fixtures/*.js', function(err, stdout, stderr) {
-			assert.equal(stdout, JSON.stringify(expectedManifest));
+			assert.equal(stdout, JSON.stringify(expectedJsManifest));
 			done();
 		});
 	});
