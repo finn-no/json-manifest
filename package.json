@@ -1,0 +1,39 @@
+{
+  "name": "manifestify",
+  "version": "1.0.0",
+  "description": "Create a JSON manifest of static asset files having hash in their filenames",
+  "main": "index.js",
+  "bugs": "https://github.com/finn-no/manifestify/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:finn-no/manifestify.git"
+  },
+  "keywords": [
+    "manifest",
+    "asset",
+    "static"
+  ],
+  "files": [
+    "index.js",
+    "bin"
+  ],
+  "bin": {
+    "manifestify": "./bin/manifestify"
+  },
+  "scripts": {
+    "pretest": "finn-js-code-style *.js",
+    "test": "mocha --reporter spec"
+  },
+  "engines": {
+    "node": ">=0.10"
+  },
+  "dependencies": {
+    "glob": "^4.3.5"
+  },
+  "devDependencies": {
+    "finn-js-code-style": "^4.1.2",
+    "mocha": "^2.1.0"
+  },
+  "author": "FINN.no AS",
+  "license": "MIT"
+}
