@@ -5,7 +5,7 @@ function withoutHash(filename) {
 	return filename.replace(/(.*)(-[^.]+)(\.js)$/, '$1$3');
 }
 
-module.exports = function manifestify(dir, filePattern) {
+module.exports = function jsonManifest(dir, filePattern) {
 	var rs = new Readable();
 	rs._read = function () {};
 

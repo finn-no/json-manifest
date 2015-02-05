@@ -1,4 +1,4 @@
-# manifestify
+# json-manifest
 
 Create a JSON manifest of static asset files which has filenames with hash in their filenames.
 
@@ -22,15 +22,15 @@ Create a JSON manifest of static asset files which has filenames with hash in th
 
 ## Usage
 
-### manifestify(directory, filePattern): readable stream
+### jsonManifest(directory, filePattern): readable stream
 
 ```js
 var fs = require('fs');
-var manifestify = require('manifestify');
+var jsonManifest = require('json-manifest');
 
 var destFile = fs.createWriteStream('manifest.json');
 
-manifestify('./public', 'js/*.js')
+jsonManifest('./public', 'js/*.js')
 	.on('error', function(err){
 		console.error('Error while creating manifest :(', err.stack);
 	})
@@ -40,8 +40,8 @@ manifestify('./public', 'js/*.js')
 ### Command line
 
 ```bash
-$ npm install -g manifestify
-$ manifestify public js/*.js > manifest.json
+$ npm install -g json-manifest
+$ json-manifest public js/*.js > manifest.json
 ```
 
 ## License

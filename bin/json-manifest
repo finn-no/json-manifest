@@ -1,0 +1,12 @@
+#!/usr/bin/env node
+
+var jsonManifest = require('../');
+
+var dir = process.argv[2];
+var pattern = process.argv[3];
+
+if (!dir || !pattern) {
+	return console.error('syntax: json-manifest <directory> <file-pattern>');
+}
+
+jsonManifest(dir, pattern).on('error', console.error).pipe(process.stdout);
