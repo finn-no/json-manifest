@@ -1,6 +1,6 @@
 {
   "name": "json-manifest",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Create a JSON manifest of static asset files having hash in their filenames",
   "main": "index.js",
   "bugs": "https://github.com/finn-no/json-manifest/issues",
