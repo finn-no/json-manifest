@@ -1,4 +1,4 @@
-# json-manifest
+# json-manifest [![Build Status](https://api.travis-ci.org/finn-no/json-manifest.png)](http://travis-ci.org/finn-no/json-manifest)
 
 Create a JSON manifest of static asset files which has filenames with hash in their filenames.
 
